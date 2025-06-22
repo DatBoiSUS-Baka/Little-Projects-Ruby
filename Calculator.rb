@@ -16,7 +16,13 @@ def operations(number1, number2, type)
   elsif type == "Multiply"
     return number1 * number2
   elsif type == "Divide"
-    return number1 / number2
+    # Shows an error if trying to divide by zero
+    if number2 == 0
+      puts "Cant divide by zero!"
+      return
+    else
+      return number1 / number2
+    end
   end
 end
 
@@ -37,7 +43,6 @@ while running == true do
     number2 = gets.chomp.to_f
   
     # Do the operations with the number
-    result = operations(number1, number2, type)
-    puts "The result is #{result}"
+    puts operations(number1, number2, type)
   end
 end
