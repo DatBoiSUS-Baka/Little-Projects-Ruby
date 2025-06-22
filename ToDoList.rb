@@ -25,6 +25,15 @@ def write_file(string)
   file.close
 end
 
-read_file()
-write_file("This is what style really is")
+def append_file(string)
+  file = File.open('List.txt', 'a')
+
+  file.puts(string)
+
+  file.close
+end
+
+# read_file()
+# append_file("This is what style really is")
+write_file("")
 read_file()
