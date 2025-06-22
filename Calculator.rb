@@ -8,6 +8,7 @@
 # ======================================================
 
 def operations(number1, number2, type)
+  # Main function for the operations
   if type == "Add"
     return number1 + number2
   elsif type == "Subtract"
@@ -23,10 +24,11 @@ running = true
 while running == true do
   puts "Ruby Calculator in CMD"
   
+  puts "Please select what type of operation (Add, Subtract, Multiply, Divide)"
   type = gets.chomp.capitalize
 
-  running = false if type == "End"
   if type == "End"
+    # Will end the program if the user chose typed "End"
     running = false
   else
     puts "Please enter the first number"
@@ -34,11 +36,8 @@ while running == true do
     puts "Please enter the second number"
     number2 = gets.chomp.to_f
   
-    if type != nil
-      result = operations(number1, number2, type)
-      puts "The result is #{result}"
-    else
-      puts "Not a valid type"
-    end
+    # Do the operations with the number
+    result = operations(number1, number2, type)
+    puts "The result is #{result}"
   end
 end
