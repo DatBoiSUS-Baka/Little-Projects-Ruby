@@ -17,4 +17,14 @@ def read_file()
   file.close
 end
 
+def write_file(string)
+  file = File.open('List.txt', 'w')
+
+  file.write(string)
+
+  file.close
+end
+
+read_file()
+write_file("This is what style really is")
 read_file()
