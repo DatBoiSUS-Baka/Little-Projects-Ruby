@@ -44,15 +44,18 @@ tasks = Array.new
 while running == true do
   puts "Simple Ruby To-Do List"
 
+  # Read from the 'List.txt' file and put it into an array
   puts "\nTasks to do:"
   tasks = read_file("List.txt")
   puts tasks
 
+  # Input from the user
   puts "\nWhat would you like to do?"
   input = gets.chomp.capitalize
-  if input == "End"
+
+  if input == "End" # The program ends if the user typed 'End'
     running = false
-  elsif input == "Add"
+  elsif input == "Add" # Takes user input and append it to the list in 'List.txt'
     puts "Input your task jusseyo"
     temp = gets.chomp
     rows = tasks.count
