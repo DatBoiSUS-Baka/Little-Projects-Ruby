@@ -7,14 +7,17 @@
 #                  is able to make a todo list into a txt file
 # ======================================================
 
-def read_file()
-  file = File.open('List.txt', 'r')
+def read_file(fileName)
+  file = File.open(fileName, 'r')
 
+  result = Array.new
   file.readlines.each.with_index do |line, counter|
-    puts (counter + 1).to_s + ": " + line
+    result.insert(counter, line)
   end
 
   file.close
+
+  return result
 end
 
 def write_file(string)
@@ -33,7 +36,20 @@ def append_file(string)
   file.close
 end
 
-# read_file()
-# append_file("This is what style really is")
-write_file("")
-read_file()
+running = true
+
+# Array for putting the to-do list
+tasks = Array.new
+
+while running == true do
+  puts "Simple Ruby To-Do List"
+
+  puts "\nTasks to do:"
+  tasks = read_file("List.txt")
+  puts tasks
+
+  input = gets.chomp.capitalize
+  if input == "End"
+    running = false
+  end
+end
