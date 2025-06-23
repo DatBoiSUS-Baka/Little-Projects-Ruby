@@ -48,8 +48,14 @@ while running == true do
   tasks = read_file("List.txt")
   puts tasks
 
+  puts "\nWhat would you like to do?"
   input = gets.chomp.capitalize
   if input == "End"
     running = false
+  elsif input == "Add"
+    puts "Input your task jusseyo"
+    temp = gets.chomp
+    rows = tasks.count
+    append_file("#{rows + 1}. #{temp}")
   end
 end
