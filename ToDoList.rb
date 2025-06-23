@@ -62,7 +62,7 @@ while running == true do
     rows = tasks.count
     append_file("#{rows + 1}. #{temp}")
     
-  elsif input == "Edit"
+  elsif input == "Edit" # Takes user input for the index and the new text, then write over the file with the new tasks
 
     puts "Which task would you like to edit?"
     index = gets.chomp.to_i
