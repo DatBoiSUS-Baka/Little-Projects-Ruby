@@ -60,5 +60,14 @@ while running == true do
     temp = gets.chomp
     rows = tasks.count
     append_file("#{rows + 1}. #{temp}")
+  elsif input == "Edit"
+    puts "Which task would you like to edit?"
+    index = gets.chomp.to_i
+    if index > 0 && index <= tasks.length
+      puts "Your new edited task"
+      temp = gets.chomp
+      tasks[index - 1] = "#{index}. #{temp}"
+      write_file("#{tasks}")
+    end
   end
 end
