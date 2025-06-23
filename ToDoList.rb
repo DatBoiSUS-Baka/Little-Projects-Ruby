@@ -20,12 +20,12 @@ def read_file(fileName)
   return result
 end
 
-def write_file(string)
-  file = File.open('List.txt', 'w')
-
-  file.write(string)
-
-  file.close
+def write_file(tasks, filename = "List.txt")
+  File.open(filename, 'w') do |file|
+    tasks.each do |task|
+      file.puts task
+    end
+  end
 end
 
 def append_file(string)
@@ -56,18 +56,23 @@ while running == true do
   if input == "End" # The program ends if the user typed 'End'
     running = false
   elsif input == "Add" # Takes user input and append it to the list in 'List.txt'
+
     puts "Input your task jusseyo"
     temp = gets.chomp
     rows = tasks.count
     append_file("#{rows + 1}. #{temp}")
+    
   elsif input == "Edit"
+
     puts "Which task would you like to edit?"
     index = gets.chomp.to_i
+
     if index > 0 && index <= tasks.length
       puts "Your new edited task"
       temp = gets.chomp
       tasks[index - 1] = "#{index}. #{temp}"
-      write_file("#{tasks}")
+      write_file(tasks)
     end
+  
   end
 end
