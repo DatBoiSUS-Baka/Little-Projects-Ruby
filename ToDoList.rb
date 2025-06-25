@@ -50,7 +50,7 @@ while running == true do
   puts tasks
 
   # Input from the user
-  puts "\nWhat would you like to do?"
+  puts "\nWhat would you like to do? (Add, Edit, Delete, End)"
   input = gets.chomp.capitalize
 
   if input == "End" # The program ends if the user typed 'End'
@@ -88,6 +88,6 @@ while running == true do
         puts "An Error Happened"
       end
     end
-    
+
   end
 end
