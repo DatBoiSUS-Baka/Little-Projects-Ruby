@@ -74,5 +74,20 @@ while running == true do
       write_file(tasks)
     end
   
+  elsif input == "Delete" # Takes user input for the index and deletes the task, then write over the file with the updated tasks
+
+    puts "Which task would you like to delete?"
+    index = gets.chomp.to_i
+
+    if index > 0 && index <= tasks.length
+      tasks.delete_at(index - 1)
+      if !tasks[index - 1]
+        write_file(tasks)
+        puts "Deletion Success"
+      else
+        puts "An Error Happened"
+      end
+    end
+    
   end
 end
